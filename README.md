@@ -1,85 +1,121 @@
-# Resus Rush
+# 🚑 Code Blue – ER Decision-Making Game
 
-Similar to Nintendo Game Overcooked or Hotel Rush, a player will have to manage the many tasks that one must do when a cardiac emergency patient goes into defibrillation. 
+**Code Blue** is a browser-based emergency room (ER) simulation game built for  
+**BME3053C – Computer Applications for Biomedical Engineering**.
 
-## Biomedical Context
+The game puts players in the role of an ER doctor responsible for:
+- Moving between patients
+- Assigning urgency levels
+- Choosing treatments under time pressure  
+to mirror the stress and multitasking of real emergency workflows.
 
-This is a fun and educational game to teach individuals the clinical workflow during a cardiac emergency, with each level getting more complex. 
+---
 
-## Quick Start Instructions
+## 🎮 Gameplay Overview
 
-### Opening the Repository in GitHub Codespaces
-Opening the Repository in Github Codespaces
-1. Click the green Code button at the top of this repository
-2. Select "Create codespace on main"
-3. Wait 1-2 minutes while GitHub builds the Codespace environment.
-4. When it loads, you will see a full VS Code editor running in your browser.
+In **Code Blue**, you manage multiple patients in an ER setting.  
+Each patient presents with a short case description (symptoms, vitals, context).  
 
-### Running the Application
+Your job is to:
+1. **Navigate** to the patient
+2. **Assign an urgency level**
+3. **Choose and perform the correct treatment**
+4. **Do all of this before time/health runs out**
 
-This project uses a simple static server to run the browser game.
-	1.	In the Codespaces terminal, run: python3 -m http.server 8000
-  2.	In the bottom panel of Codespaces, open the Ports tab.
-	3.	Locate port 8000 → click Open in Browser.
-	4.	The game will launch at:
-http://localhost:8000/
+Your decisions affect:
+- **Score**
+- **Patient outcomes**
+- **Overall success of the level**
 
-You should now see the game canvas and be able to move your character
-## Usage Guide
+---
 
-How to Play
+## 🕹 Controls
 
-This prototype simulates a mini “Overcooked-style” emergency room with three main stations:
-	•	CPR Station (Orange)
-	•	Pulse Check Station (Blue)
-	•	Shock Station (Red)
+> 🔧 Update this section to match your actual keybinds
 
-Your goal is to complete all three steps in order before the timer reaches zero.
+- **Move**: `W`, `A`, `S`, `D` (or arrow keys)
+- **Interact / Talk to Patient**: `E`
+- **Confirm Decision / Select Option**: `Enter` or click with mouse
+- **Switch Tabs / Views (if applicable)**: Click interface buttons at top
 
-⸻
+Mouse is used for:
+- Choosing urgency levels
+- Selecting treatments
+- Navigating UI buttons (tabs, start, restart, etc.)
 
-Step-by-Step
+---
 
-Step 1 — Move Your Character
-	•	Use WASD or Arrow Keys to walk around the room.
-	•	Your character is the yellow square on the canvas.
+## 🩺 ER Workflow in the Game
 
-Step 2 — Start CPR
-	•	Walk to the orange CPR station.
-	•	When the “Press E” prompt appears, press E repeatedly.
-	•	After 5 compressions, the objective will update.
+Code Blue is designed around a simplified ER workflow:
 
-Step 3 — Check the Pulse
-	•	Move to the blue Pulse Check station.
-	•	Press E to perform a pulse assessment.
-	•	The patient status will update to “Shock advised.”
+### 1. **Arrival & Presentation**
+Each patient appears with:
+- A brief scenario (e.g., chest pain, trauma, altered mental status)
+- Key findings (vital signs, general appearance, history clues)
 
-Step 4 — Deliver a Shock
-	•	Walk to the red Shock Station.
-	•	Press E to deliver the shock and stabilize the patient.
-	•	You win once all three objectives are completed.
+Your first task is **rapid assessment**.
 
-## Data Description (optional)
+### 2. **Assigning Urgency**
 
-### Data Source
-This prototype does not use any external datasets.
-All station positions, player movement, and patient states are hard-coded in game.js.
-.
-├── index.html        # Main game page, UI layout, canvas element
-├── style.css         # Game visuals, styling, colors, layout
-├── game.js           # Core game logic: movement, interactions, objectives
-├── README.md         # Project documentation
-└── assets/           # (optional) Folder for future sprites, audio, etc.
+You must assign a triage/urgency level based on the case:
 
-Key Features:
-	•	Pure JavaScript 2D game loop (no frameworks required).
-	•	Simple top-down movement and interaction system.
-	•	Three gameplay tasks mirroring real CPR sequence.
-	•	Easily extendable to multiplayer using Socket.io later.
+- If you **over-triage** (low severity marked as high),  
+  → small point penalty but the patient is safe.
 
+- If you **under-triage** (high severity marked as low),  
+  → larger penalty and the patient’s status worsens.
 
+- Taking too long to decide drains the **time/health bar**,  
+  modeling how real-life delays can harm outcomes.
 
-## Project Structure
+### 3. **Treatment Selection**
 
-[Description of the project structure and organization]
+Once urgency is set, you choose the correct intervention(s), such as:
+- Starting CPR
+- Giving fluids
+- Providing oxygen
+- Ordering appropriate tests/next steps (simplified in-game)
+
+Picking the wrong treatment or hesitating:
+- Costs time
+- Lowers score
+- Can cause the case to “crash” or fail
+
+### 4. **Progression Through Cases**
+
+As you move through the game:
+- Cases become more complex
+- Time pressure increases
+- Multitasking and prioritization become more important
+
+The player learns to:
+- Scan information quickly
+- Prioritize high-risk patients
+- Commit to decisions under pressure
+
+---
+
+## 🎯 Learning Objectives
+
+Code Blue was built to reinforce:
+
+- **Fast recall** of basic medical and physiological concepts  
+- **Prioritization** of patients based on severity and time sensitivity  
+- **Multitasking** in a simulated, high-stress ER environment  
+- **Critical thinking** when information is limited
+
+It is **not** a clinical training tool, but a **learning experience** to:
+- Illustrate ER workflow
+- Practice structured decision-making
+- Appreciate how “every second counts” in emergent care
+
+---
+
+## 📦 How to Run the Game
+
+1. **Clone or download** this repository:
+   ```bash
+   git clone <YOUR_REPO_URL_HERE>
+   
 
